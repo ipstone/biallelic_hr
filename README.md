@@ -1,5 +1,5 @@
 
-# Refactored biallelic_hr calculation in biallelic_pan_cancer.R
+# Refactored biallelic_hr calculation in biallelic_hr_pan_cancer.R
 
 - `biallelic_hr_pan_cancer.R` is the refactored code to calculate/output:
 	hrd_mc3.csv matrix file:
@@ -31,6 +31,7 @@
 - Performance:
 	For the 102 interested genes and all the samples in the paper, with CPU of 2 cores, the code calculates the hrd_mc3.csv table in about 5 minutes.
 	
+```
     CPU time :                                   238.04 sec.
     Max Memory :                                 11 GB
     Average Memory :                             3.90 GB
@@ -41,7 +42,7 @@
     Max Threads :                                5
     Run time :                                   256 sec.
     Turnaround time :                            255 sec.
-
+```
 
 # Restructure the code base
     Move all the previous R, python, and shell script to ./lib folder.
