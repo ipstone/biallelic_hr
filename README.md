@@ -30,13 +30,11 @@
 
 - Performance:
 	For the 102 interested genes and all the samples in the paper, with CPU of 2 cores, the code calculates the hrd_mc3.csv table in about 5 minutes.
-	
+
 ```
     CPU time :                                   238.04 sec.
     Max Memory :                                 11 GB
     Average Memory :                             3.90 GB
-    Total Requested Memory :                     64.00 GB
-    Delta Memory :                               53.00 GB
     Max Swap :                                   -
     Max Processes :                              4
     Max Threads :                                5
