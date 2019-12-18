@@ -1,3 +1,8 @@
+# Restructure the code base
+    Move all the previous R, python, and shell script to ./lib folder.
+    In order to use previous code to repeat the results, please adapt
+    the script path (with lib/ in path etc.)
+
 # Pan-cancer analysis of bi-allelic alterations in homologous recombination (HR) DNA repair 
 	The following provides step by step instructions to reproduce the key
 	results from the manuscript above. Results can be reproduced
