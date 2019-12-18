@@ -1,35 +1,46 @@
 
 # Refactored biallelic_hr calculation in biallelic_pan_cancer.R
 
-	- `biallelic_hr_pan_cancer.R` is the refactored code to calculate/output:
-		hrd_mc3.csv matrix file:
-			which contains the biallelic status calculation for each tcga-sample/gene pairs.
+- `biallelic_hr_pan_cancer.R` is the refactored code to calculate/output:
+	hrd_mc3.csv matrix file:
+		which contains the biallelic status calculation for each tcga-sample/gene pairs.
 
-	- Inputs of the script are contained in the ./input/ folder: 
-		Most of them are soft-linked to the previous Supplementary_Files folder.
-			`input/mc3.v0.2.8.PUBLIC.maf` is downloaded from:
-				https://gdc.cancer.gov/about-data/publications/mc3-2017
+- Inputs of the script are contained in the ./input/ folder: 
+	Most of them are soft-linked to the previous Supplementary_Files folder.
+		`input/mc3.v0.2.8.PUBLIC.maf` is downloaded from:
+			https://gdc.cancer.gov/about-data/publications/mc3-2017
 
-	- As calculating biallelic status for a list of genes, this refactored code generates some intermediate data in the ./cache/ folder, which can be used for explorator/development purposes. It is useful when performing some down-stream analysis, without the need to reload data from raw.
+- As calculating biallelic status for a list of genes, this refactored code generates some intermediate data in the ./cache/ folder, which can be used for explorator/development purposes. It is useful when performing some down-stream analysis, without the need to reload data from raw.
 
-		In `biallelic_hr_pan_cancer.R`: 
-			whether to load from raw data or cache can be set with:
-				load_cached  <- 0 # Switch to 1 to load from cached assembled data
+	In `biallelic_hr_pan_cancer.R`: 
+		whether to load from raw data or cache can be set with:
+			load_cached  <- 0 # Switch to 1 to load from cached assembled data
 
-	- Output: hrd_mc3.csv
-		This is a sample/gene combination table, with each row gives the code for whether the specific gene has biallelic status based on germline, somatic mutations, LOH, etc. The assigned category is in the cat field (or mc3_cat field using the mutation from MC3 data).
+- Output: hrd_mc3.csv
+	This is a sample/gene combination table, with each row gives the code for whether the specific gene has biallelic status based on germline, somatic mutations, LOH, etc. The assigned category is in the cat field (or mc3_cat field using the mutation from MC3 data).
 
-		Downstream of the hrd_mc3.csv output:
-			Users can use the sample/gene category information to designate a overall sample category for a sample:
-				For example: 
-					all the samples containing gene swith Biallelic_path categories (using the interested genes): 
-						can be designated as 'Biallelic_path' category for the sample;
+	Downstream of the hrd_mc3.csv output:
+		Users can use the sample/gene category information to designate a overall sample category for a sample:
+			For example: 
+				all the samples containing gene swith Biallelic_path categories (using the interested genes): 
+					can be designated as 'Biallelic_path' category for the sample;
 
-					whereas samples without any interested gene has 'Biallelic_path', but with any interested gene has 'Monoallelic_path' status:
-						 would be assigned as "Monoallelic_path" samples.
+				whereas samples without any interested gene has 'Biallelic_path', but with any interested gene has 'Monoallelic_path' status:
+					 would be assigned as "Monoallelic_path" samples.
 
-	- Performance:
-		For the 102 interested genes and all the samples in the paper, with CPU of 2 cores, the code calculates the hrd_mc3.csv table in about 5 minutes.
+- Performance:
+	For the 102 interested genes and all the samples in the paper, with CPU of 2 cores, the code calculates the hrd_mc3.csv table in about 5 minutes.
+	
+    CPU time :                                   238.04 sec.
+    Max Memory :                                 11 GB
+    Average Memory :                             3.90 GB
+    Total Requested Memory :                     64.00 GB
+    Delta Memory :                               53.00 GB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                5
+    Run time :                                   256 sec.
+    Turnaround time :                            255 sec.
 
 
 # Restructure the code base
